@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="SecondCollectionViewCell" customModule="CMonyTest" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="148" height="102"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="148" height="102"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_empty_game" translatesAutoresizingMaskIntoConstraints="NO" id="rQv-hv-wph">
+                        <rect key="frame" x="0.0" y="0.0" width="148" height="102"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lVE-sX-DZS">
+                        <rect key="frame" x="10" y="10" width="128" height="82"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="rQv-hv-wph" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="34o-9H-MKL"/>
+                <constraint firstItem="lVE-sX-DZS" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="40x-uA-t6e"/>
+                <constraint firstAttribute="bottom" secondItem="lVE-sX-DZS" secondAttribute="bottom" constant="10" id="4fU-LG-JqN"/>
+                <constraint firstAttribute="trailing" secondItem="rQv-hv-wph" secondAttribute="trailing" id="Aja-Uc-Qju"/>
+                <constraint firstItem="lVE-sX-DZS" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="YXD-XN-BMe"/>
+                <constraint firstAttribute="bottom" secondItem="rQv-hv-wph" secondAttribute="bottom" id="bgU-eJ-oXC"/>
+                <constraint firstItem="lVE-sX-DZS" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="fRf-pU-XQN"/>
+                <constraint firstItem="lVE-sX-DZS" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="oar-ny-olC"/>
+                <constraint firstAttribute="trailing" secondItem="lVE-sX-DZS" secondAttribute="trailing" constant="10" id="u2z-jR-qhw"/>
+                <constraint firstItem="rQv-hv-wph" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="uzC-Gb-DPI"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="148" height="102"/>
+            <connections>
+                <outlet property="imageView" destination="rQv-hv-wph" id="l1a-LJ-hdt"/>
+                <outlet property="titleLabel" destination="lVE-sX-DZS" id="m1I-hA-bYF"/>
+            </connections>
+            <point key="canvasLocation" x="208.69565217391306" y="117.85714285714285"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="icon_empty_game" width="158" height="158"/>
+    </resources>
+</document>
