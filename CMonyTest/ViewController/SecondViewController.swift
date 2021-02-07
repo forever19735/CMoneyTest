@@ -11,12 +11,16 @@ import UIKit
 class SecondViewController: BaseViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
-
-    var data: [CMoneyModel] = []
-
+    
+    let viewModel = CMoneyViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchData()
+        viewModel.fetchData()
+        viewModel.data.bind { [weak self] (_) in
+            DispatchQueue.main.async {
+                self?.collectionView.reloadData()
+            }
+        }
     }
     
     override func setupUI() {
@@ -24,37 +28,23 @@ class SecondViewController: BaseViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
     }
-    
-    func fetchData() {
-        NetworkManager.shared.request(CMoneyAPI.getData, model: [CMoneyModel].self) { (result) in
-            switch result {
-            case .success(let content):
-                self.data = content
-                DispatchQueue.main.async {
-                    self.collectionView.reloadData()
-                }
-            case .fail(let error):
-                print(error)
-            }
-        }
-    }
 }
 
 extension SecondViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return data.count
+        return viewModel.data.value?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(with: SecondCollectionViewCell.self, for: indexPath)
-        let info = self.data[indexPath.row]
+        guard let info = viewModel.data.value?[indexPath.row] else { return UICollectionViewCell() }
         cell.configCell(viewData: SecondViewData(title: info.title, imageUrl: info.url))
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let info = self.data[indexPath.row]
+        guard let info = viewModel.data.value?[indexPath.row] else { return }
         let vc = InfoViewController(info: info)
         self.navigationController?.pushViewController(vc, animated: true)
     }

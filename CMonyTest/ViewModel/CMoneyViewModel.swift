@@ -9,5 +9,15 @@
 import Foundation
 
 class CMoneyViewModel {
-    
+    var data = Bindable<[CMoneyModel]>()
+    func fetchData() {
+        NetworkManager.shared.request(CMoneyAPI.getData, model: [CMoneyModel].self) { (result) in
+            switch result {
+            case .success(let content):
+                self.data.value = content
+            case .fail(let error):
+                print(error)
+            }
+        }
+    }
 }

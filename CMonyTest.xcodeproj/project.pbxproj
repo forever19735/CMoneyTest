@@ -36,6 +36,7 @@
 		B5D887AA25C95B7900B8DF85 /* InfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5D887A825C95B7900B8DF85 /* InfoViewController.xib */; };
 		B5D887B225CA5A9000B8DF85 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D887B125CA5A9000B8DF85 /* Date+Extension.swift */; };
 		B5D887B425CA5A9B00B8DF85 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D887B325CA5A9B00B8DF85 /* String+Extension.swift */; };
+		B5D8881825CFD92000B8DF85 /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D8881725CFD92000B8DF85 /* Bindable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,7 @@
 		B5D887A825C95B7900B8DF85 /* InfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoViewController.xib; sourceTree = "<group>"; };
 		B5D887B125CA5A9000B8DF85 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		B5D887B325CA5A9B00B8DF85 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		B5D8881725CFD92000B8DF85 /* Bindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bindable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				B5D887AB25C95BAE00B8DF85 /* ViewController */,
 				B5D887AC25C95BBA00B8DF85 /* View */,
 				B5D887AD25C95BC400B8DF85 /* Base */,
+				B5D8881725CFD92000B8DF85 /* Bindable.swift */,
 			);
 			path = CMonyTest;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 				B5D8878625C9383300B8DF85 /* Router.swift in Sources */,
 				B5D8878D25C9384500B8DF85 /* URLParameterEncoder.swift in Sources */,
 				B5D887A025C9406900B8DF85 /* BaseViewController.swift in Sources */,
+				B5D8881825CFD92000B8DF85 /* Bindable.swift in Sources */,
 				B5D8878425C9383300B8DF85 /* HTTPTask.swift in Sources */,
 				B5D8878C25C9384500B8DF85 /* ParameterEncoding.swift in Sources */,
 				B5D8878725C9383300B8DF85 /* EndPointType.swift in Sources */,

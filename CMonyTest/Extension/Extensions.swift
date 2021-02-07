@@ -65,48 +65,51 @@ extension UICollectionView {
 let imageCache = NSCache<NSString, UIImage>()
 extension UIImageView {
     fileprivate var activityIndicator: UIActivityIndicatorView {
-    get {
-
-        if let indicator = self.subviews.first(where: { $0 is UIActivityIndicatorView }) as? UIActivityIndicatorView {
-            return indicator
+        get {
+            
+            if let indicator = self.subviews.first(where: { $0 is UIActivityIndicatorView }) as? UIActivityIndicatorView {
+                return indicator
+            }
+            
+            let activityIndicator = UIActivityIndicatorView(style: .gray)
+            activityIndicator.hidesWhenStopped = true
+            self.addSubview(activityIndicator)
+            activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+            
+            let centerX = NSLayoutConstraint(item: self,
+                                             attribute: .centerX,
+                                             relatedBy: .equal,
+                                             toItem: activityIndicator,
+                                             attribute: .centerX,
+                                             multiplier: 1,
+                                             constant: 0)
+            
+            let centerY = NSLayoutConstraint(item: self,
+                                             attribute: .centerY,
+                                             relatedBy: .equal,
+                                             toItem: activityIndicator,
+                                             attribute: .centerY,
+                                             multiplier: 1,
+                                             constant: 0)
+            
+            self.addConstraints([centerX, centerY])
+            return activityIndicator
         }
-
-        let activityIndicator = UIActivityIndicatorView(style: .gray)
-        activityIndicator.hidesWhenStopped = true
-        self.addSubview(activityIndicator)
-        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-
-        let centerX = NSLayoutConstraint(item: self,
-                                         attribute: .centerX,
-                                         relatedBy: .equal,
-                                         toItem: activityIndicator,
-                                         attribute: .centerX,
-                                         multiplier: 1,
-                                         constant: 0)
-
-        let centerY = NSLayoutConstraint(item: self,
-                                         attribute: .centerY,
-                                         relatedBy: .equal,
-                                         toItem: activityIndicator,
-                                         attribute: .centerY,
-                                         multiplier: 1,
-                                         constant: 0)
-
-        self.addConstraints([centerX, centerY])
-        return activityIndicator
-      }
     }
     
     func loadImageUsingCache(withUrl urlString : String, showLoading: Bool = false, completion: @escaping (UIImage) -> Void) {
         let url = URL(string: urlString)
         if url == nil { return }
-
+        
         if showLoading {
             activityIndicator.startAnimating()
         }
-
+        
         if let cachedImage = imageCache.object(forKey: urlString as NSString)  {
-             completion(cachedImage)
+            if showLoading {
+                self.activityIndicator.stopAnimating()
+            }
+            completion(cachedImage)
             return
         }
         
@@ -115,7 +118,7 @@ extension UIImageView {
                 print(error!)
                 return
             }
-
+            
             DispatchQueue.main.async {
                 if let downloadImage = UIImage(data: data!) {
                     if showLoading {
@@ -125,7 +128,7 @@ extension UIImageView {
                     completion(downloadImage)
                 }
             }
-
+            
         }).resume()
     }
 }

@@ -17,7 +17,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="148" height="102"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_empty_game" translatesAutoresizingMaskIntoConstraints="NO" id="rQv-hv-wph">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rQv-hv-wph">
                         <rect key="frame" x="0.0" y="0.0" width="148" height="102"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lVE-sX-DZS">
@@ -49,7 +49,4 @@
             <point key="canvasLocation" x="208.69565217391306" y="117.85714285714285"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <image name="icon_empty_game" width="158" height="158"/>
-    </resources>
 </document>
